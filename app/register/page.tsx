@@ -32,7 +32,7 @@ const RegisterForm: React.FC = () => {
     setErrors(newErrors);
 
     if (valid) {
-      // Simulate successful registration and redirect
+     
       router.push('/form'); // Redirect to form page after successful registration
     }
   };
@@ -81,7 +81,7 @@ const RegisterForm: React.FC = () => {
               {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
             </div>
             <div className="flex justify-between items-center mb-6">
-              <Link href="/login">
+              <Link href="/form">
                 <p className="text-sm text-blue-500 hover:underline">
                   Already have an account? Login
                 </p>
