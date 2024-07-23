@@ -1,7 +1,9 @@
+
 import React from 'react';
 import Link from 'next/link'; 
-import { FaStar, FaUser, FaTwitter, FaWhatsapp, FaInstagram, FaFacebook ,FaHeart,FaShoppingCart } from 'react-icons/fa';
+import { FaStar, FaUser, FaTwitter, FaWhatsapp, FaInstagram, FaFacebook ,FaHeart, FaShoppingCart } from 'react-icons/fa';
 import Navi from '../component/Navigation';
+import Image from 'next/image';
 
 const Stores: React.FC = () => {
   return (
@@ -84,19 +86,13 @@ const Stores: React.FC = () => {
                       <h3 className="text-lg font-semibold text-gray-800">Product Name {product}</h3>
                       <p className="text-gray-600">Home Accessories.</p>
                       <div className="ml-auto flex">
-                    <button
-                     
-                      className="p-2 hover:bg-gray-200"
-                    >
-                      <FaHeart />
-                    </button>
-                    <button
-                     
-                      className="p-2 hover:bg-gray-200"
-                    >
-                      <FaShoppingCart />
-                    </button>
-                  </div>
+                        <button className="p-2 hover:bg-gray-200">
+                          <FaHeart />
+                        </button>
+                        <button className="p-2 hover:bg-gray-200">
+                          <FaShoppingCart />
+                        </button>
+                      </div>
                     </div>
                   </Link>
                 ))}
@@ -131,7 +127,7 @@ const Stores: React.FC = () => {
 
       <footer className="bg-gray-300 text-black py-4">
         <div className="container mx-auto flex justify-between items-center">
-          <img src="/logo.jpg" alt="Logo" className="h-8 w-8 rounded-sm" />
+          <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="rounded-sm" />
           <p className="text-center">Mark8 ©2024. By Awesomity Ltd</p>
           <div className="flex space-x-4">
             <FaTwitter className="hover:text-blue-400 cursor-pointer" aria-label="Twitter" />

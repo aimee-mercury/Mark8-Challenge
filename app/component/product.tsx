@@ -1,23 +1,33 @@
 "use client";
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { FaStore, FaMicrophone, FaSearch, FaHeart, FaShoppingCart } from 'react-icons/fa';
+import Image from 'next/image';
 import { useFavorites } from '../component/favorite';
 import { useCart } from '../component/hook/cart';
-import { useRouter } from 'next/navigation';
+
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  originalPrice: number;
+  imageUrl: string;
+  quantity: number;
+};
 
 const MainPage: React.FC = () => {
   const { favorites, toggleFavorite } = useFavorites();
   const { cart, toggleCartItem } = useCart();
   const router = useRouter();
 
-  const products = [
-    { id: 1, name: "Product 1", price: 9000, originalPrice: 12000, imageUrl: "/ludo.jpeg" },
-    { id: 2, name: "Product 2", price: 9000, originalPrice: 12000, imageUrl: "/acc.jpeg" },
-    { id: 3, name: "Product 3", price: 9000, originalPrice: 12000, imageUrl: "/bottle.jpeg" },
-    { id: 4, name: "Product 4", price: 9000, originalPrice: 12000, imageUrl: "/rice.jpeg" },
-    { id: 5, name: "Product 5", price: 9000, originalPrice: 12000, imageUrl: "/spice.jpeg" },
-    { id: 6, name: "Product 6", price: 9000, originalPrice: 12000, imageUrl: "/sup.jpeg" },
+  const products: Product[] = [
+    { id: 1, name: "Product 1", price: 9000, originalPrice: 12000, imageUrl: "/ludo.jpeg", quantity: 1 },
+    { id: 2, name: "Product 2", price: 9000, originalPrice: 12000, imageUrl: "/acc.jpeg", quantity: 1 },
+    { id: 3, name: "Product 3", price: 9000, originalPrice: 12000, imageUrl: "/bottle.jpeg", quantity: 1 },
+    { id: 4, name: "Product 4", price: 9000, originalPrice: 12000, imageUrl: "/rice.jpeg", quantity: 1 },
+    { id: 5, name: "Product 5", price: 9000, originalPrice: 12000, imageUrl: "/spice.jpeg", quantity: 1 },
+    { id: 6, name: "Product 6", price: 9000, originalPrice: 12000, imageUrl: "/sup.jpeg", quantity: 1 },
   ];
 
   const stores = [
@@ -44,13 +54,19 @@ const MainPage: React.FC = () => {
             <h2 className="text-2xl font-semibold">Recent Products (100)</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {products.map((product) => (
+            {products.map(product => (
               <div
                 key={product.id}
                 className="border p-4 rounded relative cursor-pointer"
                 onClick={() => handleProductClick(product.id)}
               >
-                <img src={product.imageUrl} alt={product.name} className="w-full h-48 object-cover rounded mb-2" />
+                <Image
+                  src={product.imageUrl}
+                  alt={product.name}
+                  width={500}
+                  height={300}
+                  className="w-full h-48 object-cover rounded mb-2"
+                />
                 <p className="font-medium">{product.name}</p>
                 <div className="flex items-center mt-2">
                   <p className="text-yellow-500 font-semibold">{product.price} RWF</p>

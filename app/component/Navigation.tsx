@@ -1,4 +1,4 @@
-// component/Navigation.tsx
+// components/Navigation.tsx
 "use client";
 
 import React, { useState } from 'react';
@@ -8,6 +8,7 @@ import CartPanel from './display/cart';
 import ProfilePanel from './display/profile';
 import SearchPanel from './display/searchp';
 import { useCart } from '../component/hook/cart';
+import Image from 'next/image';
 
 const Navigation: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -33,7 +34,7 @@ const Navigation: React.FC = () => {
       <nav className="bg-gray-100 p-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <img src="/logo.jpg" alt="Logo" className="h-8 w-8 rounded-sm" />
+            <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="rounded-sm" />
             <div>
               <span className="text-gray-800 text-xl font-semibold">Mark8</span>
               <div className="text-gray-500 text-sm font-light">By Awesomity Lab</div>

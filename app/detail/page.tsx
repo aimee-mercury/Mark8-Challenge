@@ -4,6 +4,7 @@ import React from 'react';
 import { FaTwitter, FaWhatsapp, FaInstagram, FaFacebook, FaHeart, FaShoppingCart, FaPhone } from 'react-icons/fa';
 import { FavoritesProvider, useFavorites } from '../component/favorite';
 import Navbar from '../component/Navigation';
+import Image from 'next/image';
 
 const RecentProducts: React.FC = () => {
   const { favorites, toggleFavorite } = useFavorites();
@@ -29,7 +30,7 @@ const RecentProducts: React.FC = () => {
       <main className="container mx-auto px-4 py-6">
         <section className="py-8 w-full">
           <div className="border p-4 rounded relative flex flex-col md:flex-row">
-            <img src={featuredProduct.imageUrl} alt={featuredProduct.name} className="w-full md:w-1/2 h-48 object-cover rounded mb-2" />
+            <Image src={featuredProduct.imageUrl} alt={featuredProduct.name} width={500} height={300} className="w-full md:w-1/2 h-48 object-cover rounded mb-2" />
             <div className="md:ml-4 flex flex-col justify-between">
               <button onClick={() => toggleFavorite(featuredProduct.id)} className="absolute top-2 right-2 p-2 hover:bg-gray-200">
                 <FaHeart className="text-yellow-500" />
@@ -68,7 +69,7 @@ const RecentProducts: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-8">
             {otherProducts.map((product) => (
               <div key={product.id} className="border p-4 rounded relative">
-                <img src={product.imageUrl} alt={product.name} className="w-full h-48 object-cover rounded mb-2" />
+                <Image src={product.imageUrl} alt={product.name} width={500} height={300} className="w-full h-48 object-cover rounded mb-2" />
                 <p className="font-medium">{product.name}</p>
                 <div className="flex items-center mt-2">
                   <p className="text-yellow-500 font-semibold">{product.price} RWF</p>
@@ -93,9 +94,7 @@ const RecentProducts: React.FC = () => {
 
 const Details: React.FC = () => (
   <FavoritesProvider>
-  
     <Navbar />
-    
     <main className="container mx-auto p-4">
       <RecentProducts />
       <section id="hello" className="mt-8 bg-gray-200 rounded p-4">
@@ -118,7 +117,7 @@ const Details: React.FC = () => (
     </main>
     <footer className="bg-gray-300 text-black py-4">
       <div className="container mx-auto flex justify-between items-center">
-        <img src="/logo.jpg" alt="Logo" className="h-8 w-8 rounded-sm" />
+        <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="h-8 w-8 rounded-sm" />
         <p className="text-center">Mark8 ©2024. By Awesomity Ltd</p>
         <div className="flex space-x-4">
           <FaTwitter className="hover:text-blue-400 cursor-pointer" />

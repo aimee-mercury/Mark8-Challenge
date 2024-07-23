@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
+import Image from 'next/image'; // Import Image from next/image
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
@@ -42,7 +43,7 @@ const LoginForm: React.FC = () => {
         <div className="p-8 w-1/2 bg-gray-200 rounded-l flex flex-col">
           <div className="flex flex-col items-center">
             <div className="mb-36">
-              <img src="/logo.jpg" className="h-12" alt="Logo" />
+              <Image src="/logo.jpg" height={48} width={48} alt="Logo" /> {/* Use Image component */}
             </div>
             <h2 className="text-2xl font-bold">Mark8</h2>
             <p className="mt-1 text-sm">By Awesomity Lab</p>

@@ -4,6 +4,7 @@ import React from 'react';
 import { FaTwitter, FaWhatsapp, FaInstagram, FaFacebook, FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { FavoritesProvider, useFavorites } from '../component/favorite';
 import Navbar from '../component/Navigation';
+import Image from 'next/image';
 
 const RecentProducts: React.FC = () => {
   const { favorites, toggleFavorite } = useFavorites();
@@ -24,7 +25,13 @@ const RecentProducts: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {products.map((product) => (
               <div key={product.id} className="border p-4 rounded relative">
-                <img src={product.imageUrl} alt={product.name} className="w-full h-48 object-cover rounded mb-2" />
+                <Image
+                  src={product.imageUrl}
+                  alt={product.name}
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover rounded mb-2"
+                />
                 <p className="font-medium">{product.name}</p>
                 <div className="flex items-center mt-2">
                   <p className="text-yellow-500 font-semibold">{product.price} RWF</p>
@@ -84,7 +91,7 @@ const Saved: React.FC = () => (
     
     <footer className="bg-gray-300 text-black py-4">
       <div className="container mx-auto flex justify-between items-center">
-        <img src="/logo.jpg" alt="Logo" className="h-8 w-8 rounded-sm" />
+        <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="rounded-sm" />
         <p className="text-center">Mark8 ©2024. By Awesomity Ltd</p>
         <div className="flex space-x-4">
           <FaTwitter className="hover:text-blue-400 cursor-pointer" />

@@ -3,6 +3,7 @@
 import React from 'react';
 import { FaTimes, FaPlus, FaMinus } from 'react-icons/fa';
 import { useCart } from '../hook/cart';
+import Image from 'next/image';
 
 interface CartPanelProps {
   onClose: () => void;
@@ -22,7 +23,7 @@ const CartPanel: React.FC<CartPanelProps> = ({ onClose }) => {
   const handleRemoveItem = (productId: number) => {
     const product = cart.find(item => item.id === productId);
     if (product) {
-      toggleCartItem(product); 
+      toggleCartItem(product);
     }
   };
 
@@ -36,7 +37,7 @@ const CartPanel: React.FC<CartPanelProps> = ({ onClose }) => {
           </button>
         </div>
         <div className='bg-gray-300'>
-          <p className="text-gray-700 mb-4 p-5">By proceeding you won't be charged yet</p>
+          <p className="text-gray-700 mb-4 p-5">By proceeding you won&apos;t be charged yet</p>
         </div>
        
         <div className="mb-6">
@@ -46,7 +47,7 @@ const CartPanel: React.FC<CartPanelProps> = ({ onClose }) => {
             cart.map(product => (
               <div key={product.id} className="flex items-center justify-between mb-4 border border-gray-300 p-5">
                 <div className="flex items-center">
-                  <img src={product.imageUrl} alt={product.name} className="w-16 h-16 object-cover rounded" />
+                  <Image src={product.imageUrl} alt={product.name} width={64} height={64} className="w-16 h-16 object-cover rounded" />
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold">{product.name}</h3>
                     <p className="text-gray-600">{typeof product.price === 'number' ? product.price.toLocaleString() : product.price} Rwf</p>

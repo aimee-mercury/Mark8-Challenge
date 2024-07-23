@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { FaTimes, FaUser, FaBox, FaQuestionCircle, FaCog, FaSignOutAlt } from 'react-icons/fa';
+import Image from 'next/image';
 
 interface ProfilePanelProps {
   onClose: () => void;
@@ -18,13 +19,13 @@ const Profile: React.FC<ProfilePanelProps> = ({ onClose }) => {
         </div>
         <div className="mb-6">
           <div className="flex items-center mb-4">
-            <img src="" className="w-16 h-16 rounded-full" />
+            <Image src="/logo.jpeg" alt="Aimee Mercury" width={64} height={64} className="rounded-full" />
             <div className="ml-4">
               <h3 className="text-lg font-semibold">Aimee Mercury</h3>
               <p className="text-gray-600">marie@gmail.com</p>
             </div>
           </div>
-          <hr className="mb-4"/>
+          <hr className="mb-4" />
           <div className="flex flex-col items-center space-y-4">
             <div className="flex items-center justify-center w-full">
               <FaUser className="mr-2" /> My Account
@@ -39,7 +40,7 @@ const Profile: React.FC<ProfilePanelProps> = ({ onClose }) => {
               <FaCog className="mr-2" /> Settings
             </div>
           </div>
-          <hr className="my-4"/>
+          <hr className="my-4" />
           <div className="flex items-center justify-center w-full">
             <FaSignOutAlt className="mr-2" /> Logout
           </div>
