@@ -5,7 +5,7 @@ import { FaEnvelope, FaLock } from 'react-icons/fa';
 import Image from 'next/image'; 
 import Link from 'next/link'; 
 
-const LoginForm: React.FC = () => {
+const RegisterForm: React.FC = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,6 +23,7 @@ const LoginForm: React.FC = () => {
       newErrors.email = 'Invalid email address';
     }
 
+    // Password validation (minimum 7 characters)
     if (password.length < 7) {
       valid = false;
       newErrors.password = 'Password must be at least 7 characters';
@@ -31,8 +32,8 @@ const LoginForm: React.FC = () => {
     setErrors(newErrors);
 
     if (valid) {
-      // Redirect to home page upon successful validation
-      router.push('/home');
+      // Simulate successful registration and redirect
+      router.push('/form'); // Redirect to form page after successful registration
     }
   };
 
@@ -53,7 +54,7 @@ const LoginForm: React.FC = () => {
 
         {/* Right Part */}
         <div className="p-8 w-1/2">
-          <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
+          <h1 className="text-2xl font-bold mb-4 text-center">Register</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-4 relative flex items-center">
               <FaEnvelope className="absolute left-3 text-yellow-400" />
@@ -80,30 +81,31 @@ const LoginForm: React.FC = () => {
               {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
             </div>
             <div className="flex justify-between items-center mb-6">
-              <a href="#" className="text-sm text-blue-500 hover:underline">
-                Forgot Password?
-              </a>
+              <Link href="/login">
+                <p className="text-sm text-blue-500 hover:underline">
+                  Already have an account? Login
+                </p>
+              </Link>
               <button
                 type="submit"
                 className="py-2 px-4 bg-yellow-400 text-black rounded-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
               >
-                Login
+                Register
               </button>
             </div>
           </form>
         </div>
       </div>
 
-      {/* Register Section */}
+      {/* Login Section */}
       <div className="bg-white shadow-md w-full max-w-4xl rounded p-4 flex justify-between items-center">
         <p className="text-sm">
-          New Here?{' '}
-          <span className="text-black">Create an account</span>
+          Already have an account?{' '}
+          <span className="text-black">Login here</span>
         </p>
-        
-        <Link href="/register">
+        <Link href="/login">
           <p className="py-2 px-4 border border-black text-black rounded-md hover:bg-gray-100 focus:outline-none">
-            Register
+            Login Here
           </p>
         </Link>
       </div>
@@ -111,4 +113,4 @@ const LoginForm: React.FC = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
