@@ -66,7 +66,7 @@ const MainPage: React.FC = () => {
                       onClick={(e) => { e.stopPropagation(); toggleCartItem(product); }}
                       className="p-2 hover:bg-gray-200"
                     >
-                      <FaShoppingCart className={cart.includes(product.id) ? "text-green-500" : "text-gray-500"} />
+                      <FaShoppingCart className={cart.some(item => item.id === product.id) ? "text-green-500" : "text-gray-500"} />
                     </button>
                   </div>
                 </div>

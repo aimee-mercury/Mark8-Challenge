@@ -1,12 +1,12 @@
 import React from 'react';
-import Link from 'next/link'; // Import Link for Next.js
+import Link from 'next/link'; 
 import { FaStar, FaUser, FaTwitter, FaWhatsapp, FaInstagram, FaFacebook ,FaHeart,FaShoppingCart } from 'react-icons/fa';
-import Navigation from '../component/Navigation';
+import Navi from '../component/Navigation';
 
 const Stores: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-200 flex flex-col">
-      <Navigation />
+      <Navi />
 
       <div className="bg-gray-300 py-16 text-center text-white">
         <div className="container mx-auto">

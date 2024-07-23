@@ -7,7 +7,7 @@ type Product = {
   name: string;
   price: number;
   imageUrl: string;
-  quantity: number; // Add quantity property
+  quantity: number; 
 };
 
 export const useCart = () => {

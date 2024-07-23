@@ -9,14 +9,21 @@ interface CartPanelProps {
 }
 
 const CartPanel: React.FC<CartPanelProps> = ({ onClose }) => {
-  const { cart, toggleCartItem } = useCart();
+  const { cart, toggleCartItem, updateQuantity } = useCart();
 
   const handleQuantityChange = (productId: number, action: 'increase' | 'decrease') => {
-    // Implement quantity change logic here
+    const product = cart.find(item => item.id === productId);
+    if (!product) return;
+
+    const newQuantity = action === 'increase' ? product.quantity + 1 : product.quantity - 1;
+    updateQuantity(productId, newQuantity);
   };
 
   const handleRemoveItem = (productId: number) => {
-    toggleCartItem({ id: productId, name: '', price: 0, imageUrl: '' }); 
+    const product = cart.find(item => item.id === productId);
+    if (product) {
+      toggleCartItem(product); 
+    }
   };
 
   return (
@@ -42,7 +49,7 @@ const CartPanel: React.FC<CartPanelProps> = ({ onClose }) => {
                   <img src={product.imageUrl} alt={product.name} className="w-16 h-16 object-cover rounded" />
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold">{product.name}</h3>
-                    <p className="text-gray-600">{product.price.toLocaleString()} Rwf</p>
+                    <p className="text-gray-600">{typeof product.price === 'number' ? product.price.toLocaleString() : product.price} Rwf</p>
                   </div>
                 </div>
                 <div className="flex items-center">
@@ -52,7 +59,7 @@ const CartPanel: React.FC<CartPanelProps> = ({ onClose }) => {
                   >
                     <FaMinus />
                   </button>
-                  <span className="mx-2">1</span> 
+                  <span className="mx-2">{product.quantity}</span>
                   <button
                     onClick={() => handleQuantityChange(product.id, 'increase')}
                     className="text-gray-600 border border-gray-300 rounded-full p-1"
