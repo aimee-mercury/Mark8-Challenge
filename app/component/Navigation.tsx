@@ -1,5 +1,4 @@
 // component/Navigation.tsx
-
 "use client";
 
 import React, { useState } from 'react';
@@ -8,11 +7,14 @@ import { FaHome, FaStore, FaShoppingCart, FaHeart, FaStoreAlt, FaSearch, FaUser 
 import CartPanel from './display/cart';
 import ProfilePanel from './display/profile';
 import SearchPanel from './display/searchp';
+import { useCart } from '../component/hook/cart';
 
 const Navigation: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const { cart } = useCart(); // Using the cart hook
 
   const toggleCartPanel = () => {
     setIsCartOpen(!isCartOpen);
@@ -38,10 +40,10 @@ const Navigation: React.FC = () => {
             </div>
           </div>
           <div className="flex space-x-4 justify-center flex-grow">
-            <Link href="/" className="text-black flex items-center">
+            <Link href="/home" className="text-black flex items-center">
               <FaHome className="mr-1" /> Home
             </Link>
-            <Link href="/" className="text-black flex items-center">
+            <Link href="/stores" className="text-black flex items-center">
               <FaStore className="mr-1" /> Stores
             </Link>
           </div>
@@ -50,9 +52,10 @@ const Navigation: React.FC = () => {
               <FaSearch className="mr-1" />
             </button>
             <button onClick={toggleCartPanel} className="text-black flex items-center">
-              <FaShoppingCart className="mr-1" /> My Cart
+              <FaShoppingCart className="mr-1" />
+              My Cart ({cart.length})
             </button>
-            <Link href="/store" className="text-black flex items-center">
+            <Link href="/saved" className="text-black flex items-center">
               <FaHeart className="mr-1" /> Saved
             </Link>
             <Link href="#hello" className="border border-black text-black flex items-center px-3 py-1">

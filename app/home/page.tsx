@@ -1,10 +1,10 @@
 "use client";
 
 import React from 'react';
-import { FavoritesProvider } from './favorite';
-import RecentProducts from './product';
-import Navbar from './Navigation';
-import HeroSection from './hero';
+import { FavoritesProvider } from '../component/favorite';
+import RecentProducts from '../component/product';
+import Navbar from '../component/Navigation';
+import HeroSection from '../component/hero';
 
 import { FaTwitter, FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa';
 

@@ -19,10 +19,7 @@ const HeroSection: React.FC = () => {
             placeholder="What are you looking for?"
             className="w-full max-w-md pl-10 pr-10 py-2 border border-gray-500 rounded-full bg-gray-800 text-gray-400 placeholder-gray-500"
           />
-          {/* <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-          <FaMicrophone className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" /> */}
         </div>
-
 
         
         {/* Filter Buttons */}
