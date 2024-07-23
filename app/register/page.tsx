@@ -103,7 +103,7 @@ const RegisterForm: React.FC = () => {
           Already have an account?{' '}
           <span className="text-black">Login here</span>
         </p>
-        <Link href="/login">
+        <Link href="/form">
           <p className="py-2 px-4 border border-black text-black rounded-md hover:bg-gray-100 focus:outline-none">
             Login Here
           </p>
