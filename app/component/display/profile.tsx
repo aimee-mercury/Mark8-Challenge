@@ -28,21 +28,21 @@ const Profile: React.FC<ProfilePanelProps> = ({ onClose }) => {
           </div>
           <hr className="mb-4" />
           <div className="flex flex-col items-center space-y-4">
-            <Link href="/" className="flex items-center justify-center w-full text-gray-800 hover:text-blue-600">
+            <Link href="/home" className="flex items-center  w-full text-gray-800 hover:text-yellow-600">
               <FaUser className="mr-2" /> My Account
             </Link>
-            <Link href="/saved" className="flex items-center justify-center w-full text-gray-800 hover:text-blue-600">
+            <Link href="/saved" className="flex items-center  w-full text-gray-800 hover:text-yellow-600">
               <FaBox className="mr-2" /> My Orders
             </Link>
-            <div className="flex items-center justify-center w-full">
+            <div className="flex items-center  w-full">
               <FaQuestionCircle className="mr-2" /> Help
             </div>
-            <div className="flex items-center justify-center w-full">
+            <div className="flex items-center  w-full">
               <FaCog className="mr-2" /> Settings
             </div>
           </div>
           <hr className="my-4" />
-          <Link href="/form" className="flex items-center justify-center w-full text-gray-800 hover:text-blue-600">
+          <Link href="/form" className="flex items-center  w-full text-gray-800 hover:text-yellow-600">
             <FaSignOutAlt className="mr-2" /> Logout
           </Link>
         </div>

@@ -1,7 +1,6 @@
-
 import React from 'react';
-import Link from 'next/link'; 
-import { FaStar, FaUser, FaTwitter, FaWhatsapp, FaInstagram, FaFacebook ,FaHeart, FaShoppingCart } from 'react-icons/fa';
+import Link from 'next/link';
+import { FaStar, FaUser, FaTwitter, FaWhatsapp, FaInstagram, FaFacebook, FaHeart, FaShoppingCart } from 'react-icons/fa';
 import Navi from '../component/Navigation';
 import Image from 'next/image';
 
@@ -10,7 +9,7 @@ const Stores: React.FC = () => {
     <div className="min-h-screen bg-gray-200 flex flex-col">
       <Navi />
 
-      <div className="bg-gray-300 py-16 text-center text-white">
+      <div className="bg-gray-300 py-16 text-center text-white mr-36 ml-32 mt-10">
         <div className="container mx-auto">
           <h1 className="text-4xl font-bold mb-2">
             <span className="text-yellow-500">Mark8</span>
@@ -39,19 +38,18 @@ const Stores: React.FC = () => {
       <main className="container mx-auto px-4 py-6 flex-grow">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-semibold text-gray-800">Stores</h2>
-          <input
-            type="text"
-            placeholder="Search Store"
-            className="border border-gray-300 rounded-md px-4 py-2"
-          />
+          
         </div>
 
         {[1, 2].map((shop) => (
           <div key={shop} className="bg-white p-6 rounded-lg shadow mb-6">
             <div className="flex items-center justify-between mb-4">
-              <div>
-                <h3 className="text-xl font-semibold text-gray-800">Awesome Shop {shop}</h3>
-                <p className="text-gray-600">94 Products</p>
+              <div className="flex items-center">
+                <div className="w-20 h-20 bg-yellow-300 rounded-full mr-4"></div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">Awesome Shop {shop}</h3>
+                  <p className="text-gray-600">94 Products</p>
+                </div>
               </div>
               <button className="bg-yellow-500 text-black px-4 py-2 rounded-md flex items-center space-x-2">
                 <FaUser className="mr-2" aria-label="View Profile" />
@@ -77,20 +75,21 @@ const Stores: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ml-auto">
+            <div className="flex flex-wrap items-center mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[1, 2].map((product) => (
                   <Link key={product} href={`/detail`}>
-                    <div className="bg-white p-4 rounded-lg shadow cursor-pointer">
-                      <div className="w-20 h-20 bg-gray-400 rounded-full mb-2"></div>
+                    <div className="bg-white p-4 rounded-lg shadow cursor-pointer  md:w-1/2 lg:w-1/2 flex flex-col ml-96">
+                      <Image src="/bottle.jpeg" alt="Product" width={500} height={500} className=" object-cover mb-2" />
                       <h3 className="text-lg font-semibold text-gray-800">Product Name {product}</h3>
                       <p className="text-gray-600">Home Accessories.</p>
-                      <div className="ml-auto flex">
-                        <button className="p-2 hover:bg-gray-200">
-                          <FaHeart />
+                      <div className="text-yellow-500 text-lg font-bold mt-2">9000 Rwf</div>
+                      <div className="flex justify-between mt-auto">
+                        <button className="p-2 hover:bg-gray-200 ">
+                         
                         </button>
-                        <button className="p-2 hover:bg-gray-200">
-                          <FaShoppingCart />
+                        <button className="p-2 hover:bg-gray-200 border">
+                        <FaHeart className="text-yellow-500 "/>
                         </button>
                       </div>
                     </div>
@@ -98,7 +97,7 @@ const Stores: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="flex items-center mb-6">
+            <div className="flex items-center">
               <span className="font-semibold text-gray-800">Reviews:</span>
               <div className="flex items-center ml-2">
                 <FaStar className="text-yellow-500 mr-1" aria-label="Rating" />

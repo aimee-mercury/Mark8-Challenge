@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaStore, FaMicrophone, FaSearch, FaHeart, FaShoppingCart } from 'react-icons/fa';
 import Image from 'next/image';
@@ -21,6 +21,8 @@ const MainPage: React.FC = () => {
   const { cart, toggleCartItem } = useCart();
   const router = useRouter();
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   const products: Product[] = [
     { id: 1, name: "Product 1", price: 9000, originalPrice: 12000, imageUrl: "/ludo.jpeg", quantity: 1 },
     { id: 2, name: "Product 2", price: 9000, originalPrice: 12000, imageUrl: "/acc.jpeg", quantity: 1 },
@@ -33,14 +35,17 @@ const MainPage: React.FC = () => {
   const stores = [
     "Awesome Shop 1",
     "Awesome Shop 2",
-    "Awesome Shop 3",
+    "Simba Shop ",
+    "Remera Shop ",
+    "Kabuga Shop ",
+    "Kacyiru Shop 3",
     "Awesome Shop 4",
     "Awesome Shop 5",
-    "Awesome Shop 6",
-    "Awesome Shop 7",
-    "Awesome Shop 8",
-    "Awesome Shop 9",
   ];
+
+  const filteredStores = stores.filter(store =>
+    store.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleProductClick = (id: number) => {
     router.push(`/detail`);
@@ -73,16 +78,16 @@ const MainPage: React.FC = () => {
                   <p className="text-gray-500 line-through ml-2 text-sm font-thin">{product.originalPrice} RWF</p>
                   <div className="ml-auto flex">
                     <button
-                      onClick={(e) => { e.stopPropagation(); toggleFavorite(product.id); }}
-                      className="p-2 hover:bg-gray-200"
-                    >
-                      <FaHeart className={favorites.includes(product.id) ? "text-yellow-500" : "text-gray-500"} />
-                    </button>
-                    <button
                       onClick={(e) => { e.stopPropagation(); toggleCartItem(product); }}
                       className="p-2 hover:bg-gray-200"
                     >
                       <FaShoppingCart className={cart.some(item => item.id === product.id) ? "text-green-500" : "text-gray-500"} />
+                    </button>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); toggleFavorite(product.id); }}
+                      className="p-2 hover:bg-gray-200"
+                    >
+                      <FaHeart className={favorites.includes(product.id) ? "text-yellow-500" : "text-gray-500"} />
                     </button>
                   </div>
                 </div>
@@ -106,20 +111,26 @@ const MainPage: React.FC = () => {
                 type="text"
                 placeholder="Search a store"
                 className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-full"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
               <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <FaMicrophone className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             </div>
             <div className="mt-4 space-y-2">
-              {stores.map((store, index) => (
-                <div key={index} className="flex items-center p-2 rounded shadow-sm">
-                  <div className="bg-yellow-600 h-10 w-8 rounded flex-shrink-0"></div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium">{store}</p>
-                    <p className="text-xs text-gray-500">154 Products</p>
+              {filteredStores.length > 0 ? (
+                filteredStores.map((store, index) => (
+                  <div key={index} className="flex items-center p-2 rounded shadow-sm">
+                    <div className="bg-yellow-600 h-10 w-8 rounded flex-shrink-0"></div>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium">{store}</p>
+                      <p className="text-xs text-gray-500">154 Products</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <p className="text-center text-gray-500">No stores found</p>
+              )}
             </div>
           </div>
         </section>

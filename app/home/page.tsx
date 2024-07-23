@@ -12,7 +12,7 @@ import { FaTwitter, FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa';
 const Home: React.FC = () => (
   <FavoritesProvider>
     <Navbar />
-    <main className="container mx-auto p-4">
+    <main className="container mx-auto p-4 mt-10">
       <HeroSection />
       <div className="flex flex-col md:flex-row md:space-x-4 mt-8">
         <RecentProducts />

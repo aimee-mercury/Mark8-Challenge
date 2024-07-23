@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { FaTwitter, FaWhatsapp, FaInstagram, FaFacebook, FaHeart, FaShoppingCart, FaPhone } from 'react-icons/fa';
 import { FavoritesProvider, useFavorites } from '../component/favorite';
 import Navbar from '../component/Navigation';
@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 const RecentProducts: React.FC = () => {
   const { favorites, toggleFavorite } = useFavorites();
+  const [quantity, setQuantity] = useState(1);
 
   const featuredProduct = {
     id: 1,
@@ -24,6 +25,14 @@ const RecentProducts: React.FC = () => {
     { id: 3, name: "Product 3", price: 9000, originalPrice: 12000, imageUrl: "/bottle.jpeg" },
     { id: 6, name: "Product 6", price: 9000, originalPrice: 12000, imageUrl: "/sup.jpeg" },
   ];
+
+  const increaseQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+  };
 
   return (
     <div className="min-h-screen">
@@ -48,23 +57,21 @@ const RecentProducts: React.FC = () => {
                 <span>{featuredProduct.reviews} stars</span>
               </div>
               <div className="flex items-center mt-2">
-                <button className="px-3 py-1 bg-white border text-black rounded transition">
+                <button onClick={decreaseQuantity} className="px-3 py-1 bg-white border text-black rounded transition">
                   -
                 </button>
-                <span className="mx-2 m-10">2</span>
-                <button className="px-3 py-1 bg-white border text-black rounded transition">
+                <span className="mx-2">{quantity}</span>
+                <button onClick={increaseQuantity} className="px-3 py-1 bg-white border text-black rounded transition">
                   +
                 </button>
-                <button className=" px-6 py-3 ml-80 bg-yellow-500 text-black rounded transition">
+                <button className="px-6 py-3 ml-4 bg-yellow-500 text-black rounded transition">
                   Add to Cart
-                
                 </button>
-               
               </div>
             </div>
           </div>
 
-          <h2 className='mt-10'>you might also like : </h2>
+          <h2 className='mt-10'>You might also like:</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-8">
             {otherProducts.map((product) => (

@@ -1,4 +1,3 @@
-// components/Navigation.tsx
 "use client";
 
 import React, { useState } from 'react';
@@ -42,28 +41,28 @@ const Navigation: React.FC = () => {
           </div>
           <div className="flex space-x-4 justify-center flex-grow">
             <Link href="/home" className="text-black flex items-center">
-              <FaHome className="mr-1" /> Home
+              <FaHome className="mr-1  hover:text-yellow-600" /> Home
             </Link>
             <Link href="/stores" className="text-black flex items-center">
-              <FaStore className="mr-1" /> Stores
+              <FaStore className="mr-1  hover:text-yellow-600" /> Stores
             </Link>
           </div>
           <div className="flex space-x-4">
             <button onClick={toggleSearchPanel} className="text-black flex items-center">
-              <FaSearch className="mr-1" />
+              <FaSearch className="mr-1 text-gray-500  hover:text-yellow-600" />
             </button>
             <button onClick={toggleCartPanel} className="text-black flex items-center">
-              <FaShoppingCart className="mr-1" />
+              <FaShoppingCart className="mr-1 text-black" />
               My Cart ({cart.length})
             </button>
             <Link href="/saved" className="text-black flex items-center">
-              <FaHeart className="mr-1" /> Saved
+              <FaHeart className="mr-1 text-yellow-500  hover:text-yellow-200" /> Saved
             </Link>
             <Link href="#hello" className="border border-black text-black flex items-center px-3 py-1">
               <FaStoreAlt className="mr-1 text-yellow-500" /> Open A Store
             </Link>
-            <button onClick={toggleProfilePanel} className="text-black flex items-center border">
-              <FaUser />
+            <button onClick={toggleProfilePanel} className="text-black flex items-center ml-16">
+              <FaUser className='mr-1 text-yellow-500' />
             </button>
           </div>
         </div>

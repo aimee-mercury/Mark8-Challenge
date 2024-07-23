@@ -37,11 +37,13 @@ const RecentProducts: React.FC = () => {
                   <p className="text-yellow-500 font-semibold">{product.price} RWF</p>
                   <p className="text-gray-500 line-through ml-2 text-sm font-thin">{product.originalPrice} RWF</p>
                   <div className="ml-auto flex">
-                    <button onClick={() => toggleFavorite(product.id)} className="p-2 hover:bg-gray-200">
-                      <FaHeart className="text-yellow-500" />
-                    </button>
+                    
                     <button className="p-2 hover:bg-gray-200">
                       <FaShoppingCart className="text-gray-500 hover:text-green-500" />
+                    </button>
+                    
+                    <button onClick={() => toggleFavorite(product.id)} className="p-2 hover:bg-gray-200">
+                      <FaHeart className="text-yellow-500" />
                     </button>
                   </div>
                 </div>
