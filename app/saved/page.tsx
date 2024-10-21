@@ -22,7 +22,6 @@ const RecentProducts: React.FC = () => {
     <div className="min-h-screen">
       <main className="container mx-auto px-4 py-6">
         <section className="py-8 w-full">
-          {/* Responsive grid for product cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {products.map((product) => (
               <div key={product.id} className="border p-4 rounded relative">
@@ -59,19 +58,18 @@ const Saved: React.FC = () => (
   <FavoritesProvider>
     <Navbar />
 
-    {/* Responsive container for saved products heading */}
     <div id="hello" className="mt-8 bg-gray-200 rounded p-4 text-center">
-      <h2 className='text-2xl font-bold'>Saved products</h2>
+      <h2 className='text-2xl font-bold'>
+        Saved products
+      </h2>
       <span>6 saved</span>
     </div>
     
     <main className="container mx-auto p-4">
-      {/* Responsive layout for recent products */}
       <div className="flex flex-col md:flex-row md:space-x-4 mt-8">
         <RecentProducts />
       </div>
       
-      {/* Responsive search section */}
       <section id="hello" className="mt-8 bg-gray-200 rounded p-4">
         <div className="text-center mb-4"></div>
         <div className="flex flex-col md:flex-row items-center justify-between md:space-x-4">
@@ -91,12 +89,11 @@ const Saved: React.FC = () => (
       </section>
     </main>
     
-    {/* Responsive footer */}
     <footer className="bg-gray-300 text-black py-4">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
         <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="rounded-sm" />
-        <p className="text-center">Mark8 ©2024. By Awesomity Ltd</p>
-        <div className="flex space-x-4 mt-4 md:mt-0">
+        <p className="text-center sm:text-left">Mark8 ©2024. By Awesomity Ltd</p>
+        <div className="flex space-x-4 mt-4 sm:mt-0">
           <FaTwitter className="hover:text-blue-400 cursor-pointer" />
           <FaWhatsapp className="hover:text-green-500 cursor-pointer" />
           <FaInstagram className="hover:text-pink-500 cursor-pointer" />

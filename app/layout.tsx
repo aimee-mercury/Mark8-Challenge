@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import Link from 'next/link';
 import Navigation from './component/Navigation'
 export const metadata = {
-  title: 'My Next.js App',
+  title: 'Mark8-challenge',
   description: 'A sample project with Next.js, TypeScript, and Tailwind CSS',
 };
 

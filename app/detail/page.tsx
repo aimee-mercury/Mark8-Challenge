@@ -44,10 +44,13 @@ const RecentProducts: React.FC = () => {
               alt={featuredProduct.name}
               width={500}
               height={300}
-              className="w-full md:w-1/2 h-48 object-cover rounded mb-2 md:mb-0"
+              className="w-full md:w-1/2 h-48 object-cover rounded mb-2"
             />
             <div className="md:ml-4 flex flex-col justify-between">
-              <button onClick={() => toggleFavorite(featuredProduct.id)} className="absolute top-2 right-2 p-2 hover:bg-gray-200">
+              <button
+                onClick={() => toggleFavorite(featuredProduct.id)}
+                className="absolute top-2 right-2 p-2 hover:bg-gray-200"
+              >
                 <FaHeart className="text-yellow-500" />
               </button>
               <h2 className="text-2xl font-bold mb-2">{featuredProduct.name}</h2>
@@ -63,11 +66,17 @@ const RecentProducts: React.FC = () => {
                 <span>{featuredProduct.reviews} stars</span>
               </div>
               <div className="flex items-center mt-2">
-                <button onClick={decreaseQuantity} className="px-3 py-1 bg-white border text-black rounded transition">
+                <button
+                  onClick={decreaseQuantity}
+                  className="px-3 py-1 bg-white border text-black rounded transition"
+                >
                   -
                 </button>
                 <span className="mx-2">{quantity}</span>
-                <button onClick={increaseQuantity} className="px-3 py-1 bg-white border text-black rounded transition">
+                <button
+                  onClick={increaseQuantity}
+                  className="px-3 py-1 bg-white border text-black rounded transition"
+                >
                   +
                 </button>
                 <button className="px-6 py-3 ml-4 bg-yellow-500 text-black rounded transition">
@@ -77,7 +86,7 @@ const RecentProducts: React.FC = () => {
             </div>
           </div>
 
-          <h2 className="mt-10 text-lg font-semibold">You might also like:</h2>
+          <h2 className="mt-10">You might also like:</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
             {otherProducts.map((product) => (
@@ -94,7 +103,10 @@ const RecentProducts: React.FC = () => {
                   <p className="text-yellow-500 font-semibold">{product.price} RWF</p>
                   <p className="text-gray-500 line-through ml-2 text-sm font-thin">{product.originalPrice} RWF</p>
                   <div className="ml-auto flex">
-                    <button onClick={() => toggleFavorite(product.id)} className="p-2 hover:bg-gray-200">
+                    <button
+                      onClick={() => toggleFavorite(product.id)}
+                      className="p-2 hover:bg-gray-200"
+                    >
                       <FaHeart className="text-yellow-500" />
                     </button>
                     <button className="p-2 hover:bg-gray-200">
@@ -135,10 +147,10 @@ const Details: React.FC = () => (
       </section>
     </main>
     <footer className="bg-gray-300 text-black py-4">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="h-8 w-8 rounded-sm mb-4 md:mb-0" />
-        <p className="text-center">Mark8 ©2024. By Awesomity Ltd</p>
-        <div className="flex space-x-4">
+      <div className="container mx-auto flex flex-wrap justify-between items-center">
+        <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="h-8 w-8 rounded-sm" />
+        <p className="text-center w-full sm:w-auto">Mark8 ©2024. By Awesomity Ltd</p>
+        <div className="flex space-x-4 mt-4 sm:mt-0">
           <FaTwitter className="hover:text-blue-400 cursor-pointer" />
           <FaWhatsapp className="hover:text-green-500 cursor-pointer" />
           <FaInstagram className="hover:text-pink-500 cursor-pointer" />

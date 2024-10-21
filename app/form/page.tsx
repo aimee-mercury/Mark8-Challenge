@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'; 
+import Link from 'next/link'; 
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
@@ -37,22 +37,21 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      {/* Login Form Container */}
-      <div className="bg-white shadow-md w-full max-w-4xl rounded mb-4 flex flex-col md:flex-row">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4 sm:px-6 md:px-8">
+      <div className="bg-white shadow-md flex flex-col sm:flex-row w-full max-w-4xl rounded mb-4">
         {/* Left Part */}
-        <div className="p-8 w-full md:w-1/2 bg-gray-200 rounded-t md:rounded-l md:rounded-t-none flex flex-col items-center">
-          <div className="flex flex-col items-center mb-10">
+        <div className="p-8 w-full sm:w-1/2 bg-gray-200 rounded-t sm:rounded-l flex flex-col justify-center items-center sm:items-start">
+          <div className="mb-36">
             <Image src="/logo.jpg" height={48} width={48} alt="Logo" />
-            <h2 className="text-2xl font-bold mt-4">Mark8</h2>
-            <p className="mt-1 text-sm">By Awesomity Lab</p>
           </div>
-          <p className="text-xs mt-auto">© 2024 Awesomity Lab</p>
+          <h2 className="text-2xl font-bold text-center sm:text-left">Mark8</h2>
+          <p className="mt-1 text-sm text-center sm:text-left">By Awesomity Lab</p>
+          <p className="text-xs mt-28 text-center sm:text-left">© 2024 Awesomity Lab</p>
         </div>
 
-        {/* Right Part (Form) */}
-        <div className="p-8 w-full md:w-1/2">
-          <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
+        {/* Right Part */}
+        <div className="p-8 w-full sm:w-1/2">
+          <h1 className="text-2xl font-bold mb-4 text-center sm:text-left">Login</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-4 relative flex items-center">
               <FaEnvelope className="absolute left-3 text-yellow-400" />
@@ -94,8 +93,8 @@ const LoginForm: React.FC = () => {
       </div>
 
       {/* Register Section */}
-      <div className="bg-white shadow-md w-full max-w-4xl rounded p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        <p className="text-sm text-center">
+      <div className="bg-white shadow-md w-full max-w-4xl rounded p-4 flex justify-between items-center">
+        <p className="text-sm">
           New Here?{' '}
           <span className="text-black">Create an account</span>
         </p>

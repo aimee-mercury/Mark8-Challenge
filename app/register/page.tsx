@@ -37,22 +37,20 @@ const RegisterForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
-      <div className="bg-white shadow-md flex flex-col md:flex-row w-full max-w-4xl rounded mb-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="bg-white shadow-md flex flex-col lg:flex-row w-full max-w-4xl rounded mb-4">
         {/* Left Part */}
-        <div className="p-8 w-full md:w-1/2 bg-gray-200 rounded-t-md md:rounded-l-md md:rounded-tr-none flex flex-col">
-          <div className="flex flex-col items-center">
-            <div className="mb-36">
-              <Image src="/logo.jpg" height={48} width={48} alt="Logo" />
-            </div>
-            <h2 className="text-2xl font-bold">Mark8</h2>
-            <p className="mt-1 text-sm">By Awesomity Lab</p>
-            <p className="text-xs mt-28">© 2024 Awesomity Lab</p>
+        <div className="p-8 w-full lg:w-1/2 bg-gray-200 rounded-t lg:rounded-l flex flex-col items-center">
+          <div className="mb-36">
+            <Image src="/logo.jpg" height={48} width={48} alt="Logo" />
           </div>
+          <h2 className="text-2xl font-bold">Mark8</h2>
+          <p className="mt-1 text-sm">By Awesomity Lab</p>
+          <p className="text-xs mt-28">© 2024 Awesomity Lab</p>
         </div>
 
         {/* Right Part */}
-        <div className="p-8 w-full md:w-1/2">
+        <div className="p-8 w-full lg:w-1/2">
           <h1 className="text-2xl font-bold mb-4 text-center">Register</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-4 relative flex items-center">
@@ -79,7 +77,7 @@ const RegisterForm: React.FC = () => {
               />
               {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
             </div>
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex flex-col md:flex-row md:justify-between items-center mb-6">
               <Link href="/form">
                 <p className="text-sm text-blue-500 hover:underline">
                   Already have an account? Login
@@ -87,7 +85,7 @@ const RegisterForm: React.FC = () => {
               </Link>
               <button
                 type="submit"
-                className="py-2 px-4 bg-yellow-400 text-black rounded-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
+                className="py-2 px-4 bg-yellow-400 text-black rounded-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400 mt-4 md:mt-0"
               >
                 Register
               </button>
