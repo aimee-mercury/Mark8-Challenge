@@ -39,7 +39,13 @@ const RecentProducts: React.FC = () => {
       <main className="container mx-auto px-4 py-6">
         <section className="py-8 w-full">
           <div className="border p-4 rounded relative flex flex-col md:flex-row">
-            <Image src={featuredProduct.imageUrl} alt={featuredProduct.name} width={500} height={300} className="w-full md:w-1/2 h-48 object-cover rounded mb-2" />
+            <Image
+              src={featuredProduct.imageUrl}
+              alt={featuredProduct.name}
+              width={500}
+              height={300}
+              className="w-full md:w-1/2 h-48 object-cover rounded mb-2 md:mb-0"
+            />
             <div className="md:ml-4 flex flex-col justify-between">
               <button onClick={() => toggleFavorite(featuredProduct.id)} className="absolute top-2 right-2 p-2 hover:bg-gray-200">
                 <FaHeart className="text-yellow-500" />
@@ -71,12 +77,18 @@ const RecentProducts: React.FC = () => {
             </div>
           </div>
 
-          <h2 className='mt-10'>You might also like:</h2>
+          <h2 className="mt-10 text-lg font-semibold">You might also like:</h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
             {otherProducts.map((product) => (
               <div key={product.id} className="border p-4 rounded relative">
-                <Image src={product.imageUrl} alt={product.name} width={500} height={300} className="w-full h-48 object-cover rounded mb-2" />
+                <Image
+                  src={product.imageUrl}
+                  alt={product.name}
+                  width={500}
+                  height={300}
+                  className="w-full h-48 object-cover rounded mb-2"
+                />
                 <p className="font-medium">{product.name}</p>
                 <div className="flex items-center mt-2">
                   <p className="text-yellow-500 font-semibold">{product.price} RWF</p>
@@ -107,7 +119,7 @@ const Details: React.FC = () => (
       <section id="hello" className="mt-8 bg-gray-200 rounded p-4">
         <div className="text-center mb-4"></div>
         <div className="flex flex-col md:flex-row items-center justify-between md:space-x-4">
-          <h2 className='text-2xl font-bold mb-2'>
+          <h2 className="text-2xl font-bold mb-2">
             <span className="text-yellow-500">Open </span>
             <span className="text-black">your Store</span>
           </h2>
@@ -123,8 +135,8 @@ const Details: React.FC = () => (
       </section>
     </main>
     <footer className="bg-gray-300 text-black py-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="h-8 w-8 rounded-sm" />
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <Image src="/logo.jpg" alt="Logo" width={32} height={32} className="h-8 w-8 rounded-sm mb-4 md:mb-0" />
         <p className="text-center">Mark8 ©2024. By Awesomity Ltd</p>
         <div className="flex space-x-4">
           <FaTwitter className="hover:text-blue-400 cursor-pointer" />

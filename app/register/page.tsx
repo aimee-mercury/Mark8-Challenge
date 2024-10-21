@@ -32,16 +32,15 @@ const RegisterForm: React.FC = () => {
     setErrors(newErrors);
 
     if (valid) {
-     
       router.push('/form'); // Redirect to form page after successful registration
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white shadow-md flex w-full max-w-4xl rounded mb-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
+      <div className="bg-white shadow-md flex flex-col md:flex-row w-full max-w-4xl rounded mb-4">
         {/* Left Part */}
-        <div className="p-8 w-1/2 bg-gray-200 rounded-l flex flex-col">
+        <div className="p-8 w-full md:w-1/2 bg-gray-200 rounded-t-md md:rounded-l-md md:rounded-tr-none flex flex-col">
           <div className="flex flex-col items-center">
             <div className="mb-36">
               <Image src="/logo.jpg" height={48} width={48} alt="Logo" />
@@ -53,7 +52,7 @@ const RegisterForm: React.FC = () => {
         </div>
 
         {/* Right Part */}
-        <div className="p-8 w-1/2">
+        <div className="p-8 w-full md:w-1/2">
           <h1 className="text-2xl font-bold mb-4 text-center">Register</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-4 relative flex items-center">
