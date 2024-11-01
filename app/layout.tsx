@@ -15,7 +15,7 @@ const RootLayout = ({ children }: LayoutProps) => (
   <html lang="en">
     <body>
       <div>
-        {children}
+        {children} 
       </div>
       
     </body>
