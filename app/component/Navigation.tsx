@@ -3,11 +3,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaHome, FaStore, FaShoppingCart, FaHeart, FaStoreAlt, FaSearch, FaUser } from 'react-icons/fa';
-import CartPanel from './display/cart';
-import ProfilePanel from './display/profile';
-import SearchPanel from './display/searchp';
+import dynamic from 'next/dynamic';
 import { useCart } from '../component/hook/cart';
 import Image from 'next/image';
+
+// Dynamically importing panels to improve load performance
+const CartPanel = dynamic(() => import('./display/cart'), { ssr: false });
+const ProfilePanel = dynamic(() => import('./display/profile'), { ssr: false });
+const SearchPanel = dynamic(() => import('./display/searchp'), { ssr: false });
 
 const Navigation: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -40,31 +43,42 @@ const Navigation: React.FC = () => {
             </div>
           </div>
           <div className="flex space-x-4 justify-center flex-grow">
-            <Link href="/home" className="text-black flex items-center">
-              <FaHome className="mr-1  hover:text-yellow-600" /> Home
+            <Link href="/home" legacyBehavior>
+              <a className="text-black flex items-center">
+                <FaHome className="mr-1 hover:text-yellow-600" /> Home
+              </a>
             </Link>
-            <Link href="/stores" className="text-black flex items-center">
-              <FaStore className="mr-1  hover:text-yellow-600" /> Stores
+            <Link href="/stores" legacyBehavior>
+              <a className="text-black flex items-center">
+                <FaStore className="mr-1 hover:text-yellow-600" /> Stores
+              </a>
             </Link>
           </div>
-          <div className="flex space-x-4">
+         
             <button onClick={toggleSearchPanel} className="text-black flex items-center">
-              <FaSearch className="mr-1 text-gray-500  hover:text-yellow-600" />
+              <FaSearch className="mr-1 text-gray-500 hover:text-yellow-600" />
             </button>
             <button onClick={toggleCartPanel} className="text-black flex items-center">
               <FaShoppingCart className="mr-1 text-black" />
               My Cart ({cart.length})
             </button>
-            <Link href="/saved" className="text-black flex items-center">
-              <FaHeart className="mr-1 text-yellow-500  hover:text-yellow-200" /> Saved
+            <Link href="/saved" legacyBehavior>
+              <a className="text-black flex items-center">
+                <FaHeart className="mr-1 text-yellow-500 hover:text-yellow-200" /> Saved
+              </a>
             </Link>
-            <Link href="#hello" className="border border-black text-black flex items-center px-3 py-1">
-              <FaStoreAlt className="mr-1 text-yellow-500" /> Open A Store
+            
+            <div className="flex space-x-4">
+            <Link href="#hello" legacyBehavior>
+              <a className="border border-black text-black flex items-center px-3 py-1">
+                <FaStoreAlt className="mr-1 text-yellow-500" /> Open A Store
+              </a>
             </Link>
             <button onClick={toggleProfilePanel} className="text-black flex items-center ml-16">
-              <FaUser className='mr-1 text-yellow-500' />
+              <FaUser className="mr-1 text-yellow-500" />
             </button>
           </div>
+
         </div>
       </nav>
       {isCartOpen && <CartPanel onClose={toggleCartPanel} />}
