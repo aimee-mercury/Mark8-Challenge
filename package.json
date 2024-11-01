@@ -29,5 +29,9 @@
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.6",
     "typescript": "^5"
-  }
+  },
+  "optionalDependencies": {
+  "@next/swc-win32-x64-msvc": "15.0.0-rc.1"
 }
+}
+
